@@ -34,5 +34,6 @@
     "6080:80",
     "--name",
     "ros2-humble-dev"
-  ]
+  ],
+  "postStartCommand": "nohup sudo /bin/bash -c '/entrypoint.sh &'"
 }

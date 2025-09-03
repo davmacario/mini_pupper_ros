@@ -14,4 +14,7 @@ RUN mkdir -p "/etc/sudoers.d"]
 RUN echo "$USERNAME ALL=(ALL:ALL) NOPASSWD: ALL" | tee "/etc/sudoers.d/$USERNAME"
 COPY ./entrypoint.sh /entrypoint.sh
 
+ENV USER ubuntu
+ENV PASSWD ubuntu
+
 ENTRYPOINT ["/bin/bash", "-c", "/entrypoint.sh"]
