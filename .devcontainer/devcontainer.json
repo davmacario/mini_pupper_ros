@@ -1,0 +1,38 @@
+{
+  "name": "ROS2 Humble Dev",
+  "build": {
+    "dockerfile": "./Dockerfile",
+    "context": ".",
+    "args": {
+      "USERNAME": "ubuntu"
+    }
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/python:1": {},
+    "ghcr.io/devcontainers/features/common-utils:2": {}
+    // "ghcr.io/davmacario/devcontainer-features/dev-environment:1.2.0": {
+    //   "dotfiles_repo": "https://github.com/davmacario/dotfiles.git",
+    //   "dotfiles_branch": "main",
+    //   "dotfiles_install_script": "setup.sh"
+    // }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-iot.vscode-ros",
+        "ms-python.python"
+      ]
+    }
+  },
+  "mounts": [
+    "source=${localWorkspaceFolder},target=/workspace,type=bind"
+  ],
+  "remoteUser": "ubuntu",
+  "containerUser": "root",
+  "runArgs": [
+    "-p",
+    "6080:80",
+    "--name",
+    "ros2-humble-dev"
+  ]
+}
